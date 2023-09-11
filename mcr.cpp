@@ -58,7 +58,7 @@ int main(){
         for (int l=0; l<3; l++)
             if (game[k][l] == ' ') isNotFull = true;
     }
-    if (isNotFull)
+    if (!isNotFull)
         cout << "Tie!" << endl;
 
     // show the game to console
