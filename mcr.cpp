@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 bool isWin(char game[3][3]){
@@ -18,7 +19,8 @@ bool isWin(char game[3][3]){
 }
 
 int main(){
-    int i, j;
+    string i, j;
+    int ii, jj;
     char game[3][3] = {' '}; // Tic-tac-toe
     char player1 = 'X';
     char player2 = 'O';
@@ -26,25 +28,35 @@ int main(){
     cout << "X = Player 1" << endl << "O = Player 2" << endl;
     for (int n=0; n<9; n++){
         turn = !turn;  // use the not-operator to change true to false or false to true.
+        bool isNum = false;
+        while (isNum == false)
+        {
+            if (turn == false)
+                cout << "Player 1: ";
+            else
+                cout << "Player 2: ";
+            cout << "Which cell to mark? i:[0..2], j:[0..2]: ";
+            cin >> i >> j;
+            try {
+                ii = stoi(i);
+                jj = stoi(j);
+            }catch (...) {
+                cout << "You did not enter a number. Try again next time." << endl;
+            }
+        }
         if (turn == false)
-            cout << "Player 1: ";
-        else
-            cout << "Player 2: ";
-        cout << "Which cell to mark? i:[0..2], j:[0..2]: "; 
-        cin >> i >> j;
-        if (turn == false)
-            game[i][j] = player1;
+            game[ii][jj] = player1;
         else 
-            game[i][j] = player2;
+            game[ii][jj] = player2;
         if (isWin(game)){
             cout << "Win!" << endl;
             break; // need to terminate the problem
         }
     }
     bool isNotFull = false;
-    for (i=0; i<3; i++){
-        for (j=0; j<3; j++)
-            if (game[i][j] == ' ') isNotFull = true;
+    for (int k=0; k<3; k++){
+        for (int l=0; l<3; l++)
+            if (game[k][l] == ' ') isNotFull = true;
     }
     if (isNotFull)
         cout << "Tie!" << endl;
