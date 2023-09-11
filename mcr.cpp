@@ -24,23 +24,23 @@ int main(){
     char player2 = 'O';
     bool turn = true; // false for player 1's turn, true for player 2's turn. Player 1 first.
     cout << "X = Player 1" << endl << "O = Player 2" << endl;
-       for (int n=0; n<9; n++){
-            turn = !turn;  // use the not-operator to change true to false or false to true.
-            if (turn == false)
-                cout << "Player 1: ";
-            else
-                cout << "Player 2: ";
-            cout << "Which cell to mark? i:[0..2], j:[0..2]: "; 
-            cin >> i >> j;
-            if (turn == false)
-               game[i][j] = player1;
-            else 
-               game[i][j] = player2;
-            if (isWin(game)){
-                cout << "Win!" << endl;
-                break; // need to terminate the problem
-            }
+    for (int n=0; n<9; n++){
+        turn = !turn;  // use the not-operator to change true to false or false to true.
+        if (turn == false)
+            cout << "Player 1: ";
+        else
+            cout << "Player 2: ";
+        cout << "Which cell to mark? i:[0..2], j:[0..2]: "; 
+        cin >> i >> j;
+        if (turn == false)
+            game[i][j] = player1;
+        else 
+            game[i][j] = player2;
+        if (isWin(game)){
+            cout << "Win!" << endl;
+            break; // need to terminate the problem
         }
+    }
     bool isNotFull = false;
     for (i=0; i<3; i++){
         for (j=0; j<3; j++)
