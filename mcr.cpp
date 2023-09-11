@@ -39,6 +39,12 @@ int main(){
             try {
                 ii = stoi(i);
                 jj = stoi(j);
+                if (ii < 0 || ii > 2 || jj < 0 || jj > 2)
+                    cout << "You did not enter a number between 0 and 2. Try again next time." << endl;
+                else if (game[ii][jj] != ' ')
+                    cout << "This cell has been marked. Try again next time." << endl;
+                else
+                    isNum = true;
             } catch (...) {
                 cout << "You did not enter a number. Try again next time." << endl;
             }
