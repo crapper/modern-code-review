@@ -26,11 +26,10 @@ int main(){
     char player2 = 'O';
     bool turn = true; // false for player 1's turn, true for player 2's turn. Player 1 first.
     cout << "X = Player 1" << endl << "O = Player 2" << endl;
-    for (int n = 0; n < 9; n++){
+    for (int n = 0; n < 9; n++) {
         turn = !turn;  // use the not-operator to change true to false or false to true.
         bool isNum = false;
-        while (isNum == false)
-        {
+        while (isNum == false){
             if (turn == false)
                 cout << "Player 1: ";
             else
@@ -40,7 +39,7 @@ int main(){
             try {
                 ii = stoi(i);
                 jj = stoi(j);
-            }catch (...) {
+            } catch (...) {
                 cout << "You did not enter a number. Try again next time." << endl;
             }
         }
@@ -48,7 +47,7 @@ int main(){
             game[ii][jj] = player1;
         else 
             game[ii][jj] = player2;
-        if (isWin(game)){
+        if (isWin(game)) {
             cout << "Win!" << endl;
             break; // need to terminate the problem
         }
